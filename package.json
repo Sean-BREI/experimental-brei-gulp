@@ -1,0 +1,21 @@
+{
+  "name": "gulpgen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Moffitt <nessthehero@gmail.com> (http://www.ianmoffitt.co/)",
+  "license": "ISC",
+  "devDependencies": {
+    "assemble": "^0.17.1",
+    "autoprefixer": "^6.5.3",
+    "cssnano": "^3.8.1",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-require-tasks": "^1.0.5",
+    "stylelint": "^7.6.0"
+  }
+}
