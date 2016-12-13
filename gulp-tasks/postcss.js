@@ -1,10 +1,10 @@
-var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
-var stylelint = require('stylelint');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const stylelint = require('stylelint');
 
-module.exports = function (gulp, callback) {
+module.exports = (gulp, callback) => {
 
-	var processors = [
+	const processors = [
 		stylelint(),
         autoprefixer(),
         cssnano({
@@ -13,7 +13,7 @@ module.exports = function (gulp, callback) {
     ];
 
 	return gulp.src('in.css')
-        .pipe(postcss(processors, {syntax: scss}))
+        .pipe(postcss(processors, { syntax: scss }))
         .pipe(gulp.dest('out'));
 
-}
+};
