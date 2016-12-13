@@ -1,4 +1,8 @@
-var gulp = require('gulp');
+const gulp = require('gulp');
 require('gulp-require-tasks')();
 
-gulp.task('default', ['compass']);
+gulp.task('build', [
+	'compass'
+]);
+
+gulp.task('default', ['build']);

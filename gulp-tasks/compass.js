@@ -1,15 +1,11 @@
-var compass = require('gulp-compass');
-var path = require('path');
+const compass = require('gulp-compass');
+const path = require('path');
 
-module.exports = function (gulp, callback) {
-
-	return gulp.src('./app/sass/main.scss')
-			   .pipe(compass({
-				   config_file: 'config.rb',
-				   css: '/app/css',
-				   sass: '/app/sass'
-			   }).on('err', function (err) {
-		            console.log(err);
-		        }));
-
-}
+module.exports = (gulp, callback) => {
+	return gulp.src('./sass/main.scss')
+		.pipe(compass({
+			config_file: './config.rb',
+			css: 'css',
+			sass: 'sass'
+		}));
+};
