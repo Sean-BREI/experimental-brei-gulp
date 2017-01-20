@@ -1,14 +1,12 @@
-module.exports.register = function(Handlebars, options) {
-	'use strict';
-
-	Handlebars.registerHelper('replaceStr', function(haystack, needle, replacement) {
+module.exports = {
+	replaceStr: function (haystack, needle, replacement) {
 
 		if (haystack && needle) {
 			return haystack.replace(needle, replacement);
 		} else {
 			return '';
 		}
-	});
+	},
 
 	/* PARSE FIXTURE DATA
 	 * @param path string - pass in the name of the JSON fixture file in assemble/fixtures/
@@ -16,7 +14,7 @@ module.exports.register = function(Handlebars, options) {
 	 *
 	 */
 
-	Handlebars.registerHelper('parseFixture', function(path, options) {
+	parseFixture: function (path, options) {
 		if (!path || typeof path !== 'string') { return false; }
 
 		var fs = require('fs');
@@ -34,25 +32,25 @@ module.exports.register = function(Handlebars, options) {
 		}
 
 		return options.fn(fixture);
-	});
+	},
 
-	Handlebars.registerHelper('log', function(data) {
+	log: function (data) {
 		return console.log(data);
-	});
+	},
 
-	Handlebars.registerHelper('stringCompare', function(a, b, opts) {
+	stringCompare: function (a, b, opts) {
 		if (a == b) {
 			return opts.fn(this);
 		} else {
 			return opts.inverse(this);
 		}
-	});
+	},
 
-	Handlebars.registerHelper('toLowerCase', function(str) {
+	toLowerCase: function (str) {
 		return str.toLowerCase();
-	});
+	},
 
-	Handlebars.registerHelper('math', function(lvalue, operator, rvalue, options) {
+	math: function (lvalue, operator, rvalue, options) {
 		lvalue = parseFloat(lvalue);
 		rvalue = parseFloat(rvalue);
 
@@ -63,29 +61,29 @@ module.exports.register = function(Handlebars, options) {
 			"/": lvalue / rvalue,
 			"%": lvalue % rvalue
 		}[operator];
-	});
+	},
 
-	Handlebars.registerHelper('ifOr', function(a, b, opts) {
+	ifOr: function (a, b, opts) {
 	    if (a || b) {
 	        return opts.fn(this);
 	    } else {
 	        return opts.inverse(this);
 	    }
-	});
+	},
 
-	Handlebars.registerHelper('ifAnd', function(a, b, opts) {
+	ifAnd: function (a, b, opts) {
 	    if (a && b) {
 	        return opts.fn(this);
 	    } else {
 	        return opts.inverse(this);
 	    }
-	});
+	},
 
-	Handlebars.registerHelper('svg', function(name) {
+	svg: function (name) {
 		return new Handlebars.SafeString("<svg class='icon icon-" + name + "'><use xlink:href='#icon-" + name + "'></use></svg>");
-	});
+	},
 
-	Handlebars.registerHelper('link', function(link) {
+	link: function (link) {
 		function isValid(str) {
 			return typeof str != 'undefined' && str != '';
 		}
@@ -106,9 +104,9 @@ module.exports.register = function(Handlebars, options) {
 		}
 
 		return new Handlebars.SafeString(link);
-	});
+	},
 
-	Handlebars.registerHelper('place', function(w, h, text) {
+	place: function (w, h, text) {
 		function isValid(str) {
 			return typeof str != 'undefined' && str != '' && typeof str.data == 'undefined';
 		}
@@ -121,6 +119,5 @@ module.exports.register = function(Handlebars, options) {
 
 		return new Handlebars.SafeString("<img src='" + url + "' alt='Placeholder Image' />")
 
-	});
-
-};
+	}
+}
