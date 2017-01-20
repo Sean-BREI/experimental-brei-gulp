@@ -5,7 +5,7 @@ module.exports = (gulp, callback) => {
 	const path = require('path');
 	const assemble = require('assemble')();
 
-	assemble.helper(require(path.join(__dirname, '/../app/assemble/helpers/helpers.js')));
+	assemble.helpers(path.join(__dirname, '/../app/assemble/helpers/*.js'));
 
 	assemble.partials([
 		path.join(__dirname, '/../app/assemble/includes/*.hbs'),

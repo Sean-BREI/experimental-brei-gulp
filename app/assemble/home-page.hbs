@@ -7,6 +7,20 @@ layout: default.hbs
 {{#parseFixture 'default-content.json'}}
 <h1>Home Page</h1>
 
-{{{user-markup}}}
+	{{#ifAnd 1 1}}
+	If and works!
+	{{else}}
+	what?
+	{{/ifAnd}}
+
+	{{#ifOr 1 0}}
+	If and works!
+	{{else}}
+	what?
+	{{/ifOr}}
+
+	{{link testlink}}
+
+	{{math 4 "+" 5}}
 
 {{/parseFixture}}

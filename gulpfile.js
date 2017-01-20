@@ -3,7 +3,8 @@ require('gulp-require-tasks')();
 
 gulp.task('build', [
 	'assemble',
-	'update-scss'
+	'postcss',
+	'usemin'
 ]);
 
 gulp.task('default', ['build']);

@@ -1,19 +1,33 @@
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const stylelint = require('stylelint');
+module.exports = {
+	dep: ['update-scss', 'compass'],
+	fn: function (gulp, callback) {
 
-module.exports = (gulp, callback) => {
+		// oh ye path, our lord and savior
+		const path = require('path');
 
-	const processors = [
-		stylelint(),
-        autoprefixer(),
-        cssnano({
-			autoprefixer: false
-		})
-    ];
+		const autoprefixer = require('autoprefixer');
+		const cssnano = require('cssnano');
+		const stylelint = require('stylelint');
+		const postcss = require('gulp-postcss');
 
-	return gulp.src('in.css')
-        .pipe(postcss(processors, { syntax: scss }))
-        .pipe(gulp.dest('out'));
+		const processors = [
+			stylelint(),
+	        autoprefixer(),
+	        cssnano({
+				autoprefixer: false
+			})
+	    ];
+
+		return gulp.src(path.join(__dirname, '/../app/css/main.css'))
+	        .pipe(postcss([
+				// stylelint(),
+		        autoprefixer(),
+		        cssnano({
+					autoprefixer: false
+				})
+		    ]))
+	        .pipe(gulp.dest(path.join(__dirname, '/../app/.tmp/css')));
+
+	}
 
 };
