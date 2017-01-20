@@ -2,7 +2,8 @@ const gulp = require('gulp');
 require('gulp-require-tasks')();
 
 gulp.task('build', [
-	'assemble'
+	'assemble',
+	'update-scss'
 ]);
 
 gulp.task('default', ['build']);

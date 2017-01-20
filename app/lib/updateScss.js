@@ -5,17 +5,17 @@ var collection = [
 	{
 		'name': 'partials',
 		'searchName': 'partials',
-		'dir': './app/assemble/partials'
+		'dir': path.join(__dirname, '/../assemble/partials')
 	},
 	{
 		'name': 'modules',
 		'searchName': 'modules',
-		'dir': './app/assemble/modules'
+		'dir': path.join(__dirname, '/../assemble/modules')
 	},
 	{
 		'name': 'templates',
 		'searchName': 'assemble',
-		'dir': './app/assemble'
+		'dir': path.join(__dirname, '/../assemble')
 	}
 ];
 
@@ -24,7 +24,7 @@ collection.forEach(function(data) {
 	nodeDir.files(data.dir, function(err, files) {
 		var names = [];
 		var finalScssFile = '';
-		var finalPath = './app/sass/' + data.name + '/_assemble-' + data.name +'.scss';
+		var finalPath = path.join(__dirname, '/../sass/' + data.name + '/_assemble-' + data.name +'.scss');
 
 		if (err) {
 			throw err;
@@ -88,7 +88,7 @@ var writeMissingFiles = function(data, entry) {
 
 	var name = entry;
 	var filename = data.name + '/' + name +'.scss'
-	var readPath = './app/sass/' + filename;
+	var readPath = path.join(__dirname, '/../sass/' + filename);
 	fs.readFile(readPath, 'utf8', function(err, file) {
 
 		// console.log("reading file " + readPath);

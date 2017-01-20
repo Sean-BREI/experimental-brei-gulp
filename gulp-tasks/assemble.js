@@ -52,15 +52,14 @@ module.exports = {
 	dep: ['assemble-load'],
 	fn: function (gulp, callback) {
 
-		console.log(arguments);
+		let assemble = gulp.assemble;
 
-		const path = require('path');
 		const extname = require('gulp-extname');
 
 		return assemble.toStream('pages')
 			.pipe(assemble.renderFile())
 			.pipe(extname())
-			.pipe(assemble.dest('../app'));
+			.pipe(assemble.dest('app'));
 
 	}
 }

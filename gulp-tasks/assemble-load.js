@@ -1,8 +1,9 @@
 'use strict';
 
+
 module.exports = (gulp, callback) => {
 	const path = require('path');
-	let assemble = require('assemble')();
+	const assemble = require('assemble')();
 
 	assemble.helper(require(path.join(__dirname, '/../app/assemble/helpers/helpers.js')));
 
@@ -15,8 +16,8 @@ module.exports = (gulp, callback) => {
 	assemble.data(path.join(__dirname, '/../app/assemble/fixtures/*.json'));
   	assemble.pages(path.join(__dirname, '/../app/assemble/*.hbs'));
 
-	callback();
+	gulp.assemble = assemble;
 
-	return assemble;
+	callback();
 
 }
