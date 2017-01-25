@@ -44,6 +44,10 @@
 			"link": "#"
 		}
 	],
+	"testlink": {
+		"title": "Current Page",
+		"link": "#"
+	},
 	"social-media-icons": [
 		{
 			"title": "Facebook",

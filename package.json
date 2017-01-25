@@ -14,8 +14,11 @@
     "cssnano": "^3.8.1",
     "gulp": "^3.9.1",
     "gulp-compass": "^2.1.0",
+    "gulp-extname": "^0.2.2",
     "gulp-postcss": "^6.2.0",
     "gulp-require-tasks": "^1.0.5",
+    "gulp-usemin": "^0.3.27",
+    "node-dir": "^0.1.11",
     "stylelint": "^7.6.0"
   }
 }

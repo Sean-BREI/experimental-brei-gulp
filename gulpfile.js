@@ -2,7 +2,9 @@ const gulp = require('gulp');
 require('gulp-require-tasks')();
 
 gulp.task('build', [
-	'compass'
+	'assemble',
+	'postcss',
+	'usemin'
 ]);
 
 gulp.task('default', ['build']);
